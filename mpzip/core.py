@@ -56,6 +56,12 @@ class ProcessStream(object):
 
             return False
 
+    def __iter__(self):
+        return self
+
+    def next(self):
+        return self._file.next()
+
     def __getattr__(self, item):
         return getattr(self._file, item)
 
